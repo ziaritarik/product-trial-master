@@ -1,0 +1,21 @@
+# Configuration for Test Environment
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databaseName=EcommerceAlten;encrypt=false;
+    username:
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+  devtools:
+    add-properties: false

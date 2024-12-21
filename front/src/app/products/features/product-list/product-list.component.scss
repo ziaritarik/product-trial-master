@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.product-card {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.product-card p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.product-card .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.product-card .actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-card .actions button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.product-card .actions button i {
+  font-size: 1.2rem;
+}
+
+.product-card .actions button.add-to-cart {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.product-card .actions button.remove-from-cart {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.product-card .actions button.update {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.product-card .actions button.delete {
+  background-color: #ff5722;
+  color: #fff;
+}

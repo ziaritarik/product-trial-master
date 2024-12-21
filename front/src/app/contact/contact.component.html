@@ -1,0 +1,14 @@
+<h1>Contactez-nous</h1>
+<form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required pInputText />
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" [(ngModel)]="message" name="message" required rows="5" maxlength="300" pInputTextarea></textarea>
+  </div>
+  <button type="submit" pButton label="Envoyer" [disabled]="!contactForm.form.valid"></button>
+</form>
+
+<p-toast></p-toast>

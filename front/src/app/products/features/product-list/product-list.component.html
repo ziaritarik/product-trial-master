@@ -1,0 +1,90 @@
+<h1 class="text-center">Liste des produits</h1>
+<p-button
+  label="Créer produit"
+  (onClick)="onCreate()"
+  class="block text-center mb-3"
+></p-button>
+
+<div class="filter-container">
+  <p-dropdown
+    [options]="categories"
+    [(ngModel)]="selectedCategory"
+    placeholder="Select a category"
+    (onChange)="onCategoryChange()"
+  >
+  </p-dropdown>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Image</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Catégorie</th>
+      <th>Prix</th>
+      <th>Quantité</th>
+      <th>Référence Interne</th>
+      <th>ID Shell</th>
+      <th>Statut d'Inventaire</th>
+      <th>Évaluation</th>
+      <th>Créé le</th>
+      <th>Mis à jour le</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts" class="product-card">
+      <td>{{ product.name }}</td>
+      <td><img [src]="product.image" alt="{{ product.name }}" width="50" /></td>
+      <td>{{ product.code }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.category }}</td>
+      <td class="price">{{ product.price | currency }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.internalReference }}</td>
+      <td>{{ product.shellId }}</td>
+      <td>{{ product.inventoryStatus }}</td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.createdAt | date }}</td>
+      <td>{{ product.updatedAt | date }}</td>
+      <td class="actions">
+        <button
+          class="add-to-cart"
+          (click)="onAddToCart(product)"
+          title="Ajouter au panier"
+        >
+          <i class="pi pi-shopping-cart"></i>
+        </button>
+        <button
+          class="remove-from-cart"
+          (click)="removeFromCart(product)"
+          title="Supprimer du panier"
+        >
+          <i class="pi pi-trash"></i>
+        </button>
+        <button class="update" (click)="onUpdate(product)" title="Modifier">
+          <i class="pi pi-pencil"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p-paginator
+  [rows]="rows"
+  [totalRecords]="totalRecords"
+  (onPageChange)="onPageChange($event)"
+></p-paginator>
+
+<p-dialog
+  [(visible)]="isDialogVisible"
+  [style]="{ width: '50vw' }"
+  header="Ajout/Edition produit"
+>
+  <app-product-form
+    [product]="editedProduct()"
+    (save)="onSave($event)"
+    (cancel)="onCancel()"
+  />
+</p-dialog>

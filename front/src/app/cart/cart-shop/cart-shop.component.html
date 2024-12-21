@@ -1,0 +1,22 @@
+<h2>Panier</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Image</th>
+      <th>Prix</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of cartItems$ | async">
+      <td>{{ product.name }}</td>
+      <td><img [src]="product.image" alt="{{ product.name }}" width="50"></td>
+      <td>{{ product.price | currency }}</td>
+      <td>
+        <button pButton type="button" label="Supprimer" (click)="removeFromCart(product)"></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
